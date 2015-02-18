@@ -1,4 +1,5 @@
 #include "parse.tab.h"
+#include "ast.h"
 
 YYSTYPE yyparse();
 
