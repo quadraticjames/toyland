@@ -15,4 +15,4 @@ build:
 clean:
 	rm -f build/*
 	rm -f src/parse.tab.h src/parse.tab.c src/lex.yy.c
-	rm -f *.output
+	rm -f src/*.output
