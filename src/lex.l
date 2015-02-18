@@ -29,3 +29,7 @@ skip        { return SKIP; }
 
 while       { return WHILE; }
 do          { return DO; }
+
+[ \t\n]     { }
+
+[a-z]       { return 1; }

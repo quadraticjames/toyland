@@ -46,6 +46,6 @@ expr:
 %%
 
 int yyerror(char *e) {
-    printf("ERROR: %s", e);
+    printf("ERROR: %s\n", e);
     return 1;
 }
