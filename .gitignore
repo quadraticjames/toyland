@@ -4,3 +4,5 @@
 # Built Products
 build/
 dist/
+src/parse.tab.*
+src/lex.yy.*
