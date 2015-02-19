@@ -1,3 +1,4 @@
+// Type enums
 typedef enum {
     BOOL_T,
     INT_T,
@@ -16,13 +17,14 @@ typedef enum {
     GTEQ_OP
 } op_type;
 
+// Node structures
 typedef struct {
     node_type type;
     void *data;
 } node;
 
 typedef struct {
-    unsigned char value;
+    unsigned value;
 } bool_val;
 
 typedef struct {
@@ -63,3 +65,20 @@ typedef struct {
     node *cond;
     node *body;
 } while_val;
+
+// Constructors
+#define NODE_INIT node *ret = malloc(sizeof(node))
+#define NODE_TYPE(x) ret->type = x
+#define NODE_DATA(x) ret->data = (x *)malloc(sizeof(x))
+#define NODE_SET(t,k,v) ((t *)ret->data)->k = v
+#define NODE_END return ret
+
+node *bool_node(unsigned b);
+node *int_node(long i);
+node *loc_node(unsigned long r);
+node *op_node(op_type o, node *l, node *r);
+node *deref_node(unsigned long r);
+node *assign_node(unsigned long r, node *v);
+node *seq_node(node *f, node *s);
+node *if_node(node *c, node *s, node *f);
+node *while_node(node *c, node *b);
