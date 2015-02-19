@@ -1,16 +1,15 @@
 // Type enums
-typedef enum {
-    BOOL_T,
-    INT_T,
-    LOC_T,
-    OP_T,
-    DEREF_T,
-    ASSIGN_T,
-    SKIP_T,
-    SEQ_T,
-    IF_T,
-    WHILE_T
-} node_type;
+#define BOOL_T 0
+#define INT_T 1
+#define LOC_T 2
+#define OP_T 3
+#define DEREF_T 4
+#define ASSIGN_T 5
+#define SKIP_T 6
+#define SEQ_T 7
+#define IF_T 8
+#define WHILE_T 9
+
 
 typedef enum {
     ADD_OP,
@@ -19,7 +18,7 @@ typedef enum {
 
 // Node structures
 typedef struct {
-    node_type type;
+    int type;
     void *data;
 } node;
 
@@ -80,5 +79,6 @@ node *op_node(op_type o, node *l, node *r);
 node *deref_node(unsigned long r);
 node *assign_node(unsigned long r, node *v);
 node *seq_node(node *f, node *s);
+node *skip_node();
 node *if_node(node *c, node *s, node *f);
 node *while_node(node *c, node *b);

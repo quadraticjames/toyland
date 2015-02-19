@@ -5,9 +5,9 @@ LEX=flex
 CFLAGS=-Wall -pedantic
 
 all: build
-	$(PARSE) --verbose -d -o $(SRC_D)/parse.tab.c $(SRC_D)/parse.y
+	$(PARSE) -d -o $(SRC_D)/parse.tab.c $(SRC_D)/parse.y
 	$(LEX) -o $(SRC_D)/lex.yy.c $(SRC_D)/lex.l
-	cc $(SRC_D)/*.c -o $(BUILD_D)/lcc
+	cc -g $(SRC_D)/*.c -o $(BUILD_D)/lcc
 	
 build:
 	mkdir -p build

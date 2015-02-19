@@ -7,3 +7,4 @@ dist/
 src/parse.tab.*
 src/lex.yy.*
 *.output
+*.dSYM

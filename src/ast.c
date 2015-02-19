@@ -62,6 +62,12 @@ node *seq_node(node *f, node *s) {
     NODE_END;
 }
 
+node *skip_node() {
+    NODE_INIT;
+    NODE_TYPE(SKIP_T);
+    NODE_END;
+}
+
 node *if_node(node *c, node *s, node *f) {
     NODE_INIT;
     NODE_TYPE(IF_T);

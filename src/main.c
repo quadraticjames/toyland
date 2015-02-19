@@ -1,10 +1,16 @@
-#include "parse.tab.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "ast.h"
+#include "parse.tab.h"
 
 YYSTYPE yyparse();
 
+extern int yydebug;
+extern node *root;
+
 int main(void) {
-    node *x = int_node(0);
+    root = malloc(sizeof(node));
     yyparse();
     return 0;
 }

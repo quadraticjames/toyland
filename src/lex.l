@@ -1,4 +1,5 @@
 %{
+#include "ast.h"
 #include "parse.tab.h"
 %}
 
@@ -9,9 +10,9 @@
 true        { return TRUE; }
 false       { return FALSE; }
 
--?[0-9]+    { return INT; }
+-?[0-9]+    { yylval.int_val = atol(yytext); return INT; }
 
-l[0-9]+     { return LOC; }
+l[0-9]+     { yylval.loc_val = atol(yytext); return LOC; }
 
 "+"         { return PLUS; }
 ">="        { return GTEQ; }
@@ -33,3 +34,7 @@ do          { return DO; }
 [ \t\n]     { }
 
 [a-z]       { return 1; }
+
+<<EOF>>     { return 0; }
+
+.           { printf("Unexpected.\n"); }
