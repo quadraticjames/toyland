@@ -13,6 +13,6 @@ build:
 	mkdir -p build
 
 clean:
-	rm -f build/*
-	rm -f src/parse.tab.h src/parse.tab.c src/lex.yy.c
-	rm -f src/*.output
+	rm -rf build/*
+	rm -rf src/parse.tab.h src/parse.tab.c src/lex.yy.c
+	rm -rf src/*.output
