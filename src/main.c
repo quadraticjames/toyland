@@ -12,5 +12,6 @@ extern node *root;
 int main(void) {
     root = malloc(sizeof(node));
     yyparse();
+    printf("%d\n", root->type);
     return 0;
 }

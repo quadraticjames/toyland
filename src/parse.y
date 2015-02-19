@@ -26,9 +26,9 @@ node *root;
 %token WHILE DO
 %token END
 
+%left SEQ
 %right ASSIGN DEREF
 %nonassoc IF THEN ELSE WHILE DO
-%left SEQ
 %nonassoc GTEQ;
 %left PLUS;
 
