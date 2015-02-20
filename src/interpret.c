@@ -56,8 +56,32 @@ node *step_op(op_val *data) {
                 case ADD_OP:
                     return int_node(l + r);
                     break;
+                case SUB_OP:
+                    return int_node(l - r);
+                    break;
+                case MUL_OP:
+                    return int_node(l * r);
+                    break;
+                case DIV_OP:
+                    return int_node(l / r);
+                    break;
                 case GTEQ_OP:
                     return bool_node(l >= r);
+                    break;
+                case LTEQ_OP:
+                    return bool_node(l <= r);
+                    break;
+                case GT_OP:
+                    return bool_node(l > r);
+                    break;
+                case LT_OP:
+                    return bool_node(l < r);
+                    break;
+                case EQ_OP:
+                    return bool_node(l == r);
+                    break;
+                case NEQ_OP:
+                    return bool_node(l != r);
                     break;
             }
         } else {

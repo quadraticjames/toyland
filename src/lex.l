@@ -15,7 +15,16 @@ false       { return FALSE; }
 l[0-9]+     { yylval.loc_val = atol(yytext+1); return LOC; }
 
 "+"         { return PLUS; }
+"-"         { return SUB; }
+"*"         { return MUL; }
+"/"         { return DIV; }
+
 ">="        { return GTEQ; }
+"<="        { return LTEQ; }
+">"         { return GT; }
+"<"         { return LT; }
+"="         { return EQ; }
+"!="        { return NEQ; }
 
 if          { return IF; }
 then        { return THEN; }

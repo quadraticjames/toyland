@@ -13,7 +13,15 @@
 
 typedef enum {
     ADD_OP,
-    GTEQ_OP
+    SUB_OP,
+    MUL_OP,
+    DIV_OP,
+    GTEQ_OP,
+    LTEQ_OP,
+    GT_OP,
+    LT_OP,
+    EQ_OP,
+    NEQ_OP
 } op_type;
 
 // Node structures

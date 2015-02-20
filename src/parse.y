@@ -19,7 +19,8 @@ node *root;
 }
 
 %token TRUE FALSE INT LOC
-%token PLUS GTEQ
+%token PLUS SUB MUL DIV
+%token GTEQ LTEQ GT LT EQ NEQ
 %token IF THEN ELSE
 %token ASSIGN DEREF
 %token SKIP SEQ
@@ -31,7 +32,7 @@ node *root;
 %left SEQ
 %right ASSIGN DEREF
 %nonassoc GTEQ;
-%left PLUS;
+%left PLUS SUB MUL DIV
 
 %type <node_t> bool number expr
 %type <loc_val> location
@@ -57,6 +58,9 @@ expr:
         number { $$ = $1; }
     |   bool { $$ = $1; }
     |   expr PLUS expr { $$ = op_node(ADD_OP, $1, $3); }
+    |   expr SUB expr { $$ = op_node(SUB_OP, $1, $3); }
+    |   expr MUL expr { $$ = op_node(MUL_OP, $1, $3); }
+    |   expr DIV expr { $$ = op_node(DIV_OP, $1, $3); }
     |   expr GTEQ expr { $$ = op_node(GTEQ_OP, $1, $3); }
     |   IF expr THEN expr ELSE expr { $$ = if_node($2, $4, $6); }
     |   location ASSIGN expr { $$ = assign_node($<loc_val>1, $3); }
