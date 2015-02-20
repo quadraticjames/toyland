@@ -69,7 +69,7 @@ typedef struct {
 #define NODE_INIT node *ret = malloc(sizeof(node))
 #define NODE_TYPE(x) ret->type = x
 #define NODE_DATA(x) ret->data = (x *)malloc(sizeof(x))
-#define NODE_SET(t,k,v) ((t *)ret->data)->k = v
+#define NODE_SET(t,k,v) ((t *)(ret->data))->k = v
 #define NODE_END return ret
 
 node *bool_node(unsigned b);

@@ -32,7 +32,8 @@ node *root;
 %nonassoc GTEQ;
 %left PLUS;
 
-%type <node_t> bool number location expr
+%type <node_t> bool number expr
+%type <loc_val> location
 
 %start prog
 
@@ -49,7 +50,7 @@ number:
         INT { $$ = int_node($<int_val>1); };
 
 location:
-        LOC { $$ = loc_node($<loc_val>1); };
+        LOC { $$ = $<loc_val>1; };
 
 expr:
         number { $$ = $1; }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "ast.h"
+#include "interpret.h"
 #include "parse.tab.h"
 
 YYSTYPE yyparse();
@@ -12,6 +12,6 @@ extern node *root;
 int main(void) {
     root = malloc(sizeof(node));
     yyparse();
-    printf("%d\n", root->type);
+    step(root);
     return 0;
 }
