@@ -50,7 +50,7 @@ node *step_op(op_val *data) {
 }
 
 node *step_deref(deref_val *data) {
-    return NULL;
+    return int_node(store[data->reg]);
 }
 
 node *step_assign(assign_val *data) {
