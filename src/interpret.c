@@ -71,9 +71,17 @@ node *step_seq(seq_val *data) {
 }
 
 node *step_if(if_val *data) {
-    return NULL;
+    if(data->cond->type == BOOL_T) {
+        if(((bool_val *)(data->cond->data))->value) {
+            return data->succ;
+        } else {
+            return data->fail;
+        }
+    } else {
+        return if_node(step(data->cond), data->succ, data->fail);
+    }
 }
 
 node *step_while(while_val *data) {
-    return NULL;
+    return if_node(data->cond, while_node(data->cond, data->body), skip_node());
 }
