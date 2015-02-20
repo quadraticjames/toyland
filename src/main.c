@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "interpret.h"
+#include "check.h"
 #include "parse.tab.h"
 
 YYSTYPE yyparse();

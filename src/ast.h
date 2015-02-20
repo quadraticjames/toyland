@@ -1,3 +1,6 @@
+#ifndef AST_H
+#define AST_H
+
 // Type enums
 #define BOOL_T 0
 #define INT_T 1
@@ -95,3 +98,5 @@ node *skip_node();
 node *if_node(node *c, node *s, node *f);
 node *while_node(node *c, node *b);
 node *print_node(unsigned long r);
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef INTERPRET_H
+#define INTERPRET_H
+
 #include "ast.h"
 
 node *step(node *n);
@@ -9,3 +12,5 @@ node *step_seq(seq_val *data);
 node *step_if(if_val *data);
 node *step_while(while_val *data);
 node *step_print(print_val *data);
+
+#endif
