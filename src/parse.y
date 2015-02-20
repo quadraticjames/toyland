@@ -25,6 +25,7 @@ node *root;
 %token SKIP SEQ
 %token WHILE DO
 %token END
+%token PRINT
 
 %left SEQ
 %right ASSIGN DEREF
@@ -62,7 +63,8 @@ expr:
     |   DEREF location { $$ = deref_node($<loc_val>2); }
     |   SKIP { $$ = skip_node(); }
     |   expr SEQ expr { $$ = seq_node($1, $3); }
-    |   WHILE expr DO expr { $$ = while_node($2, $4); };
+    |   WHILE expr DO expr { $$ = while_node($2, $4); }
+    |   PRINT location { $$ = print_node($2); };
 %%
 
 int yyerror(char *e) {

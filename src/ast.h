@@ -9,7 +9,7 @@
 #define SEQ_T 7
 #define IF_T 8
 #define WHILE_T 9
-
+#define PRINT_T 10
 
 typedef enum {
     ADD_OP,
@@ -65,6 +65,10 @@ typedef struct {
     node *body;
 } while_val;
 
+typedef struct {
+    unsigned long reg;
+} print_val;
+
 // Constructors
 #define NODE_INIT node *ret = malloc(sizeof(node))
 #define NODE_TYPE(x) ret->type = x
@@ -82,3 +86,4 @@ node *seq_node(node *f, node *s);
 node *skip_node();
 node *if_node(node *c, node *s, node *f);
 node *while_node(node *c, node *b);
+node *print_node(unsigned long r);

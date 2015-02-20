@@ -86,3 +86,11 @@ node *while_node(node *c, node *b) {
     NODE_SET(while_val, body, b);
     NODE_END;
 }
+
+node *print_node(unsigned long r) {
+    NODE_INIT;
+    NODE_TYPE(PRINT_T);
+    NODE_DATA(print_val);
+    NODE_SET(print_val, reg, r);
+    NODE_END;
+}

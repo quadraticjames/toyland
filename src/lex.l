@@ -31,9 +31,11 @@ skip        { return SKIP; }
 while       { return WHILE; }
 do          { return DO; }
 
+print       { return PRINT; }
+
 [ \t\n]     { }
 
-[a-z]       { return 1; }
+[a-z].      { return 1; }
 
 <<EOF>>     { return 0; }
 

@@ -8,3 +8,4 @@ node *step_assign(assign_val *data);
 node *step_seq(seq_val *data);
 node *step_if(if_val *data);
 node *step_while(while_val *data);
+node *step_print(print_val *data);
