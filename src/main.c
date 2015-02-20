@@ -12,7 +12,7 @@ extern node *root;
 int main(void) {
     root = malloc(sizeof(node));
     yyparse();
-    while(1) {
+    while(root != NULL) {
         root = step(root);
     }
     return 0;

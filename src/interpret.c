@@ -30,7 +30,7 @@ node *step(node *n) {
             break;
         case SKIP_T:
             printf("Exiting.\n");
-            exit(0);
+            return NULL;
             break;
         case SEQ_T:
             return step_seq((seq_val *)n->data);
