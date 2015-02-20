@@ -32,7 +32,8 @@ node *root;
 %left SEQ
 %right ASSIGN DEREF
 %nonassoc GTEQ LTEQ GT LT EQ NEQ
-%left PLUS SUB MUL DIV
+%left PLUS SUB
+%left MUL DIV
 
 %type <node_t> bool number expr
 %type <loc_val> location
