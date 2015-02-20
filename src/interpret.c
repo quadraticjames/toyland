@@ -55,7 +55,7 @@ node *step_deref(deref_val *data) {
 
 node *step_assign(assign_val *data) {
     if(data->value->type == INT_T) {
-        store[data->reg] = 10;
+        store[data->reg] = ((int_val *)(data->value->data))->value;
         return skip_node();
     } else {
         return assign_node(data->reg, step(data->value)); 
