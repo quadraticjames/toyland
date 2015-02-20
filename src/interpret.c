@@ -63,7 +63,11 @@ node *step_assign(assign_val *data) {
 }
 
 node *step_seq(seq_val *data) {
-    return NULL;
+    if(data->first->type == SKIP_T) {
+        return data->second;
+    } else {
+        return seq_node(step(data->first), data->second);
+    }
 }
 
 node *step_if(if_val *data) {
