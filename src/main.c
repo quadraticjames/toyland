@@ -5,7 +5,6 @@
 #include "check.h"
 #include "parse.tab.h"
 
-YYSTYPE yyparse();
 
 extern int yydebug;
 extern node *root;
