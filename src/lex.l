@@ -12,7 +12,7 @@ false       { return FALSE; }
 
 -?[0-9]+    { yylval.int_val = atol(yytext); return INT; }
 
-l[0-9]+     { yylval.loc_val = atol(yytext); return LOC; }
+l[0-9]+     { yylval.loc_val = atol(yytext+1); return LOC; }
 
 "+"         { return PLUS; }
 ">="        { return GTEQ; }
