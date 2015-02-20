@@ -31,7 +31,7 @@ node *root;
 %nonassoc IF THEN ELSE WHILE DO
 %left SEQ
 %right ASSIGN DEREF
-%nonassoc GTEQ;
+%nonassoc GTEQ LTEQ GT LT EQ NEQ
 %left PLUS SUB MUL DIV
 
 %type <node_t> bool number expr
@@ -62,6 +62,11 @@ expr:
     |   expr MUL expr { $$ = op_node(MUL_OP, $1, $3); }
     |   expr DIV expr { $$ = op_node(DIV_OP, $1, $3); }
     |   expr GTEQ expr { $$ = op_node(GTEQ_OP, $1, $3); }
+    |   expr LTEQ expr { $$ = op_node(LTEQ_OP, $1, $3); }
+    |   expr GT expr { $$ = op_node(GT_OP, $1, $3); }
+    |   expr LT expr { $$ = op_node(LT_OP, $1, $3); }
+    |   expr EQ expr { $$ = op_node(EQ_OP, $1, $3); }
+    |   expr NEQ expr { $$ = op_node(NEQ_OP, $1, $3); }
     |   IF expr THEN expr ELSE expr { $$ = if_node($2, $4, $6); }
     |   location ASSIGN expr { $$ = assign_node($<loc_val>1, $3); }
     |   DEREF location { $$ = deref_node($<loc_val>2); }

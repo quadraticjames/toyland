@@ -1,0 +1,8 @@
+l1 := 2;
+l2 := 5;
+l3 := 1;
+while !l2 > 0 do
+    l3 := !l3 * !l1;
+    l2 := !l2 - 1
+end;
+print l3
