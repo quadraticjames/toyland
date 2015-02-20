@@ -13,8 +13,13 @@ extern node *root;
 int main(void) {
     root = malloc(sizeof(node));
     yyparse();
-    while(root != NULL) {
-        root = step(root);
+    if(check(root)) {
+        while(root != NULL) {
+            root = step(root);
+        }
+    } else {
+        printf("Failed type check.\n");
+        return 1;
     }
     return 0;
 }

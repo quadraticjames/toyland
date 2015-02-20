@@ -2,17 +2,17 @@
 #define AST_H
 
 // Type enums
-#define BOOL_T 0
-#define INT_T 1
-#define LOC_T 2
-#define OP_T 3
-#define DEREF_T 4
-#define ASSIGN_T 5
-#define SKIP_T 6
-#define SEQ_T 7
-#define IF_T 8
-#define WHILE_T 9
-#define PRINT_T 10
+#define BOOL_T 1
+#define INT_T 2
+#define LOC_T 3
+#define OP_T 4
+#define DEREF_T 5
+#define ASSIGN_T 6
+#define SKIP_T 7
+#define SEQ_T 8
+#define IF_T 9
+#define WHILE_T 10
+#define PRINT_T 11
 
 typedef enum {
     ADD_OP,

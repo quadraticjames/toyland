@@ -3,4 +3,6 @@
 
 #include "ast.h"
 
+int check(node *root);
+
 #endif
