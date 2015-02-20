@@ -3,7 +3,7 @@
 
 #include "interpret.h"
 
-long store[4096];
+long store[1048576];
 
 node *step(node *n) {
     switch(n->type) {
@@ -46,7 +46,24 @@ node *step(node *n) {
 }
 
 node *step_op(op_val *data) {
-    return NULL;
+    if(data->left->type == INT_T) {
+        if(data->right->type == INT_T) {
+            long l = ((int_val *)(data->left->data))->value;
+            long r = ((int_val *)(data->right->data))->value;
+            switch(data->op) {
+                case ADD_OP:
+                    return int_node(l + r);
+                    break;
+                case GTEQ_OP:
+                    return bool_node(l >= r);
+                    break;
+            }
+        } else {
+            return op_node(data->op, data->left, step(data->right));
+        }
+    } else {
+        return op_node(data->op, step(data->left), data->right);
+    }
 }
 
 node *step_deref(deref_val *data) {
@@ -83,5 +100,7 @@ node *step_if(if_val *data) {
 }
 
 node *step_while(while_val *data) {
-    return if_node(data->cond, while_node(data->cond, data->body), skip_node());
+    return if_node(data->cond, 
+                   seq_node(data->body, while_node(data->cond, data->body)), 
+                   skip_node());
 }
