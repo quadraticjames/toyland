@@ -29,7 +29,6 @@ node *step(node *n) {
             return step_assign((assign_val *)n->data);
             break;
         case SKIP_T:
-            printf("Exiting.\n");
             return NULL;
             break;
         case SEQ_T:
@@ -40,6 +39,9 @@ node *step(node *n) {
             break;
         case WHILE_T:
             return step_while((while_val *)n->data);
+            break;
+        case PRINT_T:
+            return step_print((print_val *)n->data);
             break;
     }
     return NULL;
@@ -103,4 +105,9 @@ node *step_while(while_val *data) {
     return if_node(data->cond, 
                    seq_node(data->body, while_node(data->cond, data->body)), 
                    skip_node());
+}
+
+node *step_print(print_val *data) {
+    printf("l%lu = %ld\n", data->reg, store[data->reg]);
+    return skip_node();
 }
