@@ -30,6 +30,7 @@ skip        { return SKIP; }
 
 while       { return WHILE; }
 do          { return DO; }
+end         { return END; }
 
 print       { return PRINT; }
 
